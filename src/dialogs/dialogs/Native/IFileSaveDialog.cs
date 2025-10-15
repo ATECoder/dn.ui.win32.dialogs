@@ -3,13 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace cc.isr.Win32.Native;
 
-internal static partial class IIDGuid
-{
-    internal const string I_FILE_SAVE_DIALOG = "84bccd23-5fde-4cdb-aea4-af64b83d78ab";
-}
-
-
-[ComImport(), Guid( IIDGuid.I_FILE_SAVE_DIALOG ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
+[ComImport(), Guid( Native.NativeGuids.I_FILE_SAVE_DIALOG_IID ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
 #if NET6_0_OR_GREATER
 [System.Diagnostics.CodeAnalysis.SuppressMessage( "Interoperability",
     "SYSLIB1096:Convert to 'GeneratedComInterface'", Justification = "The source generator cannot handle all arguments in IFileDialog" )]

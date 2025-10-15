@@ -54,7 +54,7 @@ public class OpenFileDialogTests
     public void InitializeBeforeEachTest()
     {
         Console.WriteLine( $"{this.TestContext?.FullyQualifiedTestClassName}: {DateTime.Now} {TimeZoneInfo.Local}" );
-        Assembly assembly = typeof( cc.isr.Win32.Dialogs.FolderPicker ).Assembly;
+        Assembly assembly = typeof( cc.isr.Win32.Dialogs.FolderPickerDialog ).Assembly;
         Console.WriteLine( $"\t{assembly.FullName} {assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName}" );
     }
 
@@ -102,19 +102,19 @@ public class OpenFileDialogTests
 
     #endregion
 
-    #region " folder picker tests "
+    #region " folder picker dialog tests "
 
-    /// <summary>   (Unit Test Method) loader folder picker can select folder. </summary>
+    /// <summary>   (Unit Test Method) folder picker can select folder. </summary>
     /// <remarks>   2025-10-09. </remarks>
-    [TestMethod( "01. Folder picker can select a folder" )]
-    public void LoaderFolderPickerCanSelectFolder()
+    [TestMethod( "01. Folder picker dialog can select a folder" )]
+    public void FolderPickerCanSelectFolder()
     {
-        cc.isr.Win32.Dialogs.FolderPicker? picker = new()
+        cc.isr.Win32.Dialogs.FolderPickerDialog? picker = new()
         {
-            InputPath = Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ),
+            InitialDirectory = Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ),
             Title = "Select a folder with files",
             OkButtonLabel = "Select",
-            FileNameLabel = "Atomineer",
+            InitialFolderName = "Atomineer",
         };
 
         if ( picker.ShowDialog( out string details ) )
@@ -133,5 +133,41 @@ public class OpenFileDialogTests
     }
 
     #endregion
+
+    #region " file picker dialog tests "
+
+    /// <summary>   (Unit Test Method) loader folder picker can select folder. </summary>
+    /// <remarks>   2025-10-09. </remarks>
+    [TestMethod( "02. File picker dialog can select a folder" )]
+    public void FilePickerCanSelectFile()
+    {
+        using cc.isr.Win32.Dialogs.FilePickerDialog? picker = new()
+        {
+            InitialDirectory = Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ),
+            Title = "Select files",
+            OkButtonLabel = "Select",
+            MultiSelect = true,
+        };
+
+        picker.AddFileType( "XML Files", "*.xml" );
+
+        if ( picker.ShowDialog( out string details ) )
+        {
+            string? fileName = picker.FileName;
+            Assert.IsNotNull( fileName, "A file name should be selected." );
+            Console.WriteLine( $"Selected file name: {fileName}" );
+
+            string[]? files = picker.FileNames;
+            Assert.IsNotNull( files, "" );
+            Assert.IsNotEmpty<string>( files, $"The files should be selected." );
+            foreach ( string file in files )
+                Console.WriteLine( $"Selected file: {file}" );
+        }
+        else
+            Assert.Fail( details );
+    }
+
+    #endregion
+
 }
 

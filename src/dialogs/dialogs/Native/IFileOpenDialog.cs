@@ -3,11 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace cc.isr.Win32.Native;
 
-internal static partial class IIDGuid
-{
-    internal const string I_FILE_OPEN_DIALOG = "d57c7288-d4ad-4768-be02-9d969532d960";
-}
-
 /// <summary>
 /// Extends the IFileDialog interface by adding methods specific to the open dialog.
 /// </summary>
@@ -31,7 +26,7 @@ internal static partial class IIDGuid
 /// </para>
 /// </remarks>
 [ComImport]
-[Guid( IIDGuid.I_FILE_OPEN_DIALOG )]
+[Guid( Native.NativeGuids.I_FILE_OPEN_DIALOG_IID )]
 [InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
 #if NET6_0_OR_GREATER
 [System.Diagnostics.CodeAnalysis.SuppressMessage( "Interoperability",
@@ -58,7 +53,9 @@ internal interface IFileOpenDialog
     /// <param name="rgFilterSpec"> A pointer to an array of <see cref="COMDLG_FILTERSPEC"/> structures, each representing a file type. </param>
     /// <returns>   An HRESULT return code. </returns>
     [MethodImpl( MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime )]
-    [PreserveSig] public int SetFileTypes( [In] uint cFileTypes, [In] COMDLG_FILTERSPEC[] rgFilterSpec );
+    [PreserveSig] public int SetFileTypes( [In] uint cFileTypes, [In, MarshalAs( UnmanagedType.LPArray )] COMDLG_FILTERSPEC[] rgFilterSpec );
+
+    //     [PreserveSig] public int SetFileTypes( [In] uint cFileTypes, [In] COMDLG_FILTERSPEC[] rgFilterSpec );
 
     /// <summary>   Sets the file type that appears as selected in the dialog. </summary>
     /// <remarks>   2025-10-09. </remarks>

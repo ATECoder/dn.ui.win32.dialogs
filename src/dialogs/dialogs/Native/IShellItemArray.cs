@@ -8,7 +8,7 @@ namespace cc.isr.Win32.Native;
 [System.Diagnostics.CodeAnalysis.SuppressMessage( "Interoperability", "SYSLIB1096:Convert to 'GeneratedComInterface'", Justification = "<Pending>" )]
 [System.Diagnostics.CodeAnalysis.SuppressMessage( "CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "<Pending>" )]
 #endif
-[ComImport, Guid( "b63ea76d-1f85-456f-a19c-48159efa858b" ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
+[ComImport, Guid( Native.NativeGuids.I_SHELL_ITEM_ARRAY_IID ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
 internal interface IShellItemArray
 {
     /// <summary>   Handler, called when the bind to. </summary>

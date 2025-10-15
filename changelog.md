@@ -7,6 +7,8 @@ Notable changes to this solution are documented in this file using the
 ## [1.1.9419] - 2025-10-15
 - Add Dialogs projects.
 - Imported from the [dn.win] project.
+- Add File Picker Dialog and a unit test.
+- Folder Picker Dialog: Add release of com objects.
 
 &copy; 2025 Integrated Scientific Resources, Inc. All rights reserved.
 

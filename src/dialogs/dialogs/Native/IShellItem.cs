@@ -12,7 +12,7 @@ namespace cc.isr.Win32.Native;
 [System.Diagnostics.CodeAnalysis.SuppressMessage( "Interoperability", "SYSLIB1096:Convert to 'GeneratedComInterface'", Justification = "<Pending>" )]
 [System.Diagnostics.CodeAnalysis.SuppressMessage( "CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "<Pending>" )]
 #endif
-[ComImport, Guid( "43826D1E-E718-42EE-BC55-A1E261C37BFE" ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
+[ComImport, Guid( Native.NativeGuids.I_SHELL_ITEM_IID ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
 internal interface IShellItem
 {
     /// <summary>   Handler, called when the bind to. </summary>

@@ -2,13 +2,15 @@ using System.Runtime.InteropServices;
 
 namespace cc.isr.Win32.Native;
 
-internal static class CLSIDGuid
-{
-    internal const string FILE_OPEN_DIALOG = "DC1C5A9C-E88A-4dde-A5A1-60F82A20AEF7";
-}
-
-/// <summary>   Dialog for setting the file open. </summary>
+/// <summary>   Dialog for the file open dialog. </summary>
 /// <remarks>   2025-10-09. </remarks>
-[ComImport, Guid( "DC1C5A9C-E88A-4dde-A5A1-60F82A20AEF7" )] // CLSID_FileOpenDialog
+[ComImport, Guid( Native.NativeGuids.FILE_OPEN_DIALOG_CLS_ID )]
 internal class FileOpenDialog { }
 
+/// <summary>
+/// This is the essential part: the Runtime Callable Wrapper (RCW) for the native COM class.
+/// </summary>
+/// <remarks>   2025-10-15. </remarks>
+[ComImport]
+[Guid( Native.NativeGuids.FILE_OPEN_DIALOG_CLS_ID )]
+internal class FileOpenDialogRCW { }

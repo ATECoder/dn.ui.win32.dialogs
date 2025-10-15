@@ -145,3 +145,45 @@ internal enum FOS
     /// <summary>   Indicates that the caller is opening a file as a stream (BHID_Stream), so there is no need to download that file. </summary>
     FOS_SUPPORTSTREAMABLEITEMS = unchecked(( int ) 0x80000000)
 }
+
+/// <summary>   Specifies list placement. </summary>
+/// <remarks>   2025-10-15. </remarks>
+internal enum FDAP
+{
+    FDAP_BOTTOM = 0x00000000, // For AddPlace
+    FDAP_TOP = 0x00000001,    // For AddPlace
+}
+
+/// <summary>   Values that represent fde share violation responses. </summary>
+/// <remarks>   2025-10-15. </remarks>
+internal enum FDE_SHAREVIOLATION_RESPONSE
+{
+    FDESVR_DEFAULT = 0x00000000,
+    FDESVR_ACCEPT = 0x00000001,
+    FDESVR_REFUSE = 0x00000002
+}
+
+/// <summary>   Values that represent fde overwrite responses. </summary>
+/// <remarks>   2025-10-15. </remarks>
+internal enum FDE_OVERWRITE_RESPONSE
+{
+    FDEOR_DEFAULT = 0x00000000,
+    FDEOR_ACCEPT = 0x00000001,
+    FDEOR_REFUSE = 0x00000002
+}
+
+/// <summary>   Values that represent Dialog events. </summary>
+/// <remarks>   2025-10-15. </remarks>
+internal enum DLG_EVENTS : uint
+{
+    FDE_OVERWRITE = 0x00000000,
+    FDE_FILEOK = 0x00000001,
+    FDE_FOLDERCHANGE = 0x00000002, // <--- Fired when the user navigates to a new folder
+    FDE_SELECTIONCHANGE = 0x00000003,
+    FDE_SHAREVIOLATION = 0x00000004,
+    FDE_TYPECHANGE = 0x00000005,
+    FDE_DIALOGINIT = 0x00000006,
+    FDE_CONTAINERCHANGE = 0x00000007,
+    FDE_PARTIALOPEN = 0x00000008,
+    FDE_LOCKVIEWCHANGE = 0x00000009
+}

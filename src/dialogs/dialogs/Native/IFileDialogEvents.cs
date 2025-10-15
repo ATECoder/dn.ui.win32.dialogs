@@ -6,7 +6,7 @@ namespace cc.isr.Win32.Native;
 /// <summary>   Interface for file dialog events. </summary>
 /// <remarks>   2025-10-14. <para>
 /// <see href="https://www.pinvoke.net/default.aspx/Interfaces.IFileDialogEvents"/></para> </remarks>
-[ComImport, Guid( "973510DB-7D7F-452B-8975-74A85828D354" ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
+[ComImport, Guid( Native.NativeGuids.I_FILE_DIALOG_EVENTS_IID ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
 internal interface IFileDialogEvents
 {
     // NOTE: some of these callbacks are cancelable - returning S_FALSE means that
@@ -40,16 +40,3 @@ internal interface IFileDialogEvents
                out FDE_OVERWRITE_RESPONSE pResponse );
 }
 
-internal enum FDE_SHAREVIOLATION_RESPONSE
-{
-    FDESVR_DEFAULT = 0x00000000,
-    FDESVR_ACCEPT = 0x00000001,
-    FDESVR_REFUSE = 0x00000002
-}
-
-internal enum FDE_OVERWRITE_RESPONSE
-{
-    FDEOR_DEFAULT = 0x00000000,
-    FDEOR_ACCEPT = 0x00000001,
-    FDEOR_REFUSE = 0x00000002
-}

@@ -3,11 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace cc.isr.Win32.Native;
 
-internal static partial class IIDGuid
-{
-    internal const string I_FILE_DIALOG = "42f85136-db7e-439c-85f1-e4075d135fc8";
-}
-
 /// <summary>   Exposes methods that initialize, show, and get results from the common file dialog.</summary>
 /// <remarks>   2025-10-14.  <para>
 /// Inheritance: The IFileDialog interface inherits from the <see cref="IModalWindow"/> .
@@ -15,7 +10,7 @@ internal static partial class IIDGuid
 /// <see href="https://learn.microsoft.com/en-us/windows/win32/api/shobjidl_core/nn-shobjidl_core-ifiledialog"/>
 /// </para>  </remarks>
 [ComImport]
-[Guid( IIDGuid.I_FILE_DIALOG ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
+[Guid( Native.NativeGuids.I_FILE_DIALOG_INTERFACE_ID ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
 #if NET6_0_OR_GREATER
 [System.Diagnostics.CodeAnalysis.SuppressMessage( "Interoperability",
     "SYSLIB1096:Convert to 'GeneratedComInterface'", Justification = "The source generator cannot handle all arguments in IFileDialog" )]
