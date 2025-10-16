@@ -2,7 +2,15 @@
 Notable changes to this solution are documented in this file using the 
 [Keep a Changelog] style. The dates specified are in coordinated universal time (UTC).
 
-[1.1.9419]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+[1.1.9420]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+
+## [1.1.9420] - 2025-10-16
+- Update .NET Test SDK to 4.0.1.
+- Update Microsoft Extensions to 9.0.10.
+- Test projects
+  - Use [TestMethod( DisplayName = "...']
+  - Change [ClassCleanup( ClassCleanupBehavior.EndOfClass )] to [ClassCleanup]
+  - Add parallelize to the assembly attributes.
 
 ## [1.1.9419] - 2025-10-15
 - Add Dialogs projects.

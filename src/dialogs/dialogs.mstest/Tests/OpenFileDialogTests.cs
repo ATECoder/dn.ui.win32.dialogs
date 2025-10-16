@@ -44,7 +44,7 @@ public class OpenFileDialogTests
 
     /// <summary> Cleans up the test class after all tests in the class have run. </summary>
     /// <remarks> Use <see cref="CleanupTestClass"/> to run code after all tests in the class have run. </remarks>
-    [ClassCleanup( ClassCleanupBehavior.EndOfClass )]
+    [ClassCleanup]
     public static void CleanupTestClass()
     {
     }
@@ -106,7 +106,7 @@ public class OpenFileDialogTests
 
     /// <summary>   (Unit Test Method) folder picker can select folder. </summary>
     /// <remarks>   2025-10-09. </remarks>
-    [TestMethod( "01. Folder picker dialog can select a folder" )]
+    [TestMethod( DisplayName = "01. Folder picker dialog can select a folder" )]
     public void FolderPickerCanSelectFolder()
     {
         cc.isr.Win32.Dialogs.FolderPickerDialog? picker = new()
@@ -138,7 +138,7 @@ public class OpenFileDialogTests
 
     /// <summary>   (Unit Test Method) loader folder picker can select folder. </summary>
     /// <remarks>   2025-10-09. </remarks>
-    [TestMethod( "02. File picker dialog can select a folder" )]
+    [TestMethod( DisplayName = "02. File picker dialog can select a folder" )]
     public void FilePickerCanSelectFile()
     {
         using cc.isr.Win32.Dialogs.FilePickerDialog? picker = new()
