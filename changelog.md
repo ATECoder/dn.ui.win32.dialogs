@@ -2,7 +2,12 @@
 Notable changes to this solution are documented in this file using the 
 [Keep a Changelog] style. The dates specified are in coordinated universal time (UTC).
 
-[1.1.9420]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+[1.1.9421]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+
+## [1.1.9421] - 2025-10-17
+- directory.build.props
+  - update packages.
+  - point to the current repository.
 
 ## [1.1.9420] - 2025-10-16
 - Update .NET Test SDK to 4.0.1.
