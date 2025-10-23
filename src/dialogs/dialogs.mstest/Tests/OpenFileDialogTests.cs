@@ -144,6 +144,7 @@ public class OpenFileDialogTests
         using cc.isr.Win32.Dialogs.FilePickerDialog? picker = new()
         {
             InitialDirectory = Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ),
+            Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
             Title = "Select files",
             OkButtonLabel = "Select",
             MultiSelect = true,
@@ -168,6 +169,5 @@ public class OpenFileDialogTests
     }
 
     #endregion
-
 }
 

@@ -263,6 +263,32 @@ public class FilePickerDialog : IDisposable
     /// <value> The title. </value>
     public string Title { get; set; } = "Select a File";
 
+    /// <summary>
+    /// Gets or sets the current file name filter string, which determines the choices that appear in
+    /// the "Save as file type" or "Files of type" box in the dialog box.
+    /// </summary>
+    /// <value> The filter string, e.g., "Text Files (*.txt)|*.txt|All Files (*.*)|*.*". </value>
+    public string Filter
+    {
+        get
+        {
+            if ( this._fileTypes == null || this._fileTypes.Length == 0 )
+                this._fileTypes = FilePickerDialog.ParseFilterString( "All Files (*.*)|*.*" );
+            List<string> segments = [];
+            foreach ( COMDLG_FILTERSPEC filterSpec in this._fileTypes )
+            {
+                segments.Add( filterSpec.pszName );
+                segments.Add( filterSpec.pszSpec );
+            }
+            return string.Join( "|", segments );
+        }
+        set
+        {
+            value ??= "All Files (*.*)|*.*";
+            this._fileTypes = ParseFilterString( value );
+        }
+    }
+
     /// <summary>   List of types of the files. </summary>
     private COMDLG_FILTERSPEC[] _fileTypes;
 
@@ -323,6 +349,51 @@ public class FilePickerDialog : IDisposable
     #endregion
 
     #region " helper methods "
+
+    /// <summary>
+    /// Parses the standard .NET FileDialog.Filter string into an array of COMDLG_FILTERSPEC structs.
+    /// </summary>
+    /// <remarks>   2025-10-23. </remarks>
+    /// <exception cref="ArgumentException">    Thrown if the filter string has an odd number of
+    ///                                         segments. </exception>
+    /// <param name="filterString"> The filter string, e.g., "Text Files (*.txt)|*.txt|All Files
+    ///                             (*.*)|*.*". </param>
+    /// <returns>   An array of COMDLG_FILTERSPEC structs. </returns>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage( "Style", "IDE0051:Remove unused private members", Justification = "<Pending>" )]
+    private static COMDLG_FILTERSPEC[] ParseFilterString( string filterString )
+    {
+        if ( string.IsNullOrEmpty( filterString ) )
+        {
+            return [];
+        }
+
+        // Segments are separated by the pipe character '|'
+        string[] segments = filterString.Split( '|' );
+
+        // The filter string must have an even number of segments (Label, Pattern, Label, Pattern, ...)
+        if ( segments.Length % 2 != 0 )
+        {
+            throw new ArgumentException( "The filter string is not correctly formatted. It must contain an even number of label-pattern pairs separated by '|'.", nameof( filterString ) );
+        }
+
+        var filterSpecs = new List<COMDLG_FILTERSPEC>();
+
+        // Iterate through the segments in pairs (Label and then Pattern)
+        for ( int i = 0; i < segments.Length; i += 2 )
+        {
+            string label = segments[i];
+            string pattern = segments[i + 1];
+
+            // Create and add the struct to the list
+            filterSpecs.Add( new COMDLG_FILTERSPEC
+            {
+                pszName = label,
+                pszSpec = pattern
+            } );
+        }
+
+        return [.. filterSpecs];
+    }
 
     /// <summary>   Sets the options. </summary>
     /// <remarks>   2025-10-15. </remarks>

@@ -2,7 +2,10 @@
 Notable changes to this solution are documented in this file using the 
 [Keep a Changelog] style. The dates specified are in coordinated universal time (UTC).
 
-[1.1.9421]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+[1.1.9427]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+
+## [1.1.9427] - 2025-10-23
+- Add Filter property to the file dialog.
 
 ## [1.1.9421] - 2025-10-17
 - directory.build.props
