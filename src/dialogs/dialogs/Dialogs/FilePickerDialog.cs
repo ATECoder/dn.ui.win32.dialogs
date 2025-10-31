@@ -126,7 +126,7 @@ public class FilePickerDialog : IDisposable
     /// <param name="owner">        The owner. </param>
     /// <param name="details">      [out] The details. </param>
     /// <param name="throwOnError"> (Optional) True to throw on error. </param>
-    /// <returns>   True if it succeeds, false if it fails. </returns>
+    /// <returns>   True if it succeeds; otherwise, false. </returns>
     public bool ShowDialog( IntPtr owner, out string details, bool throwOnError = false )
     {
 #if NET6_0_OR_GREATER
@@ -438,7 +438,7 @@ public class FilePickerDialog : IDisposable
     /// <remarks>   2025-10-15. </remarks>
     /// <param name="dialog">   The dialog. </param>
     /// <param name="path">     [out] Full pathname of the file. </param>
-    /// <returns>   True if it succeeds, false if it fails. </returns>
+    /// <returns>   True if it succeeds; otherwise, false. </returns>
     private static bool GetSingleResult( IFileOpenDialog? dialog, out string? path )
     {
         path = null;
@@ -469,7 +469,7 @@ public class FilePickerDialog : IDisposable
     /// <remarks>   2025-10-15. </remarks>
     /// <param name="dialog">   The dialog. </param>
     /// <param name="fileList"> [out] List of files. </param>
-    /// <returns>   True if it succeeds, false if it fails. </returns>
+    /// <returns>   True if it succeeds; otherwise, false. </returns>
     private static bool GetMultiResults( IFileOpenDialog? dialog, out IList<string> fileList )
     {
         fileList = [];
@@ -515,7 +515,7 @@ public class FilePickerDialog : IDisposable
     /// <remarks>   2025-10-15. </remarks>
     /// <param name="item"> The item. </param>
     /// <param name="path"> [out] Full pathname of the file. </param>
-    /// <returns>   True if it succeeds, false if it fails. </returns>
+    /// <returns>   True if it succeeds; otherwise, false. </returns>
     private static bool ExtractFilePath( IShellItem item, out string path )
     {
 #if true
@@ -544,7 +544,7 @@ public class FilePickerDialog : IDisposable
     /// <param name="initialDirectory"> The pathname of the initial directory. </param>
     /// <param name="throwOnError">     True to throw on error. </param>
     /// <param name="details">          [out] provides information in case the method returns false. </param>
-    /// <returns>   True if it succeeds, false if it fails. </returns>
+    /// <returns>   True if it succeeds; otherwise, false. </returns>
     internal static bool SetInitialDirectory( IFileOpenDialog dialog, string? initialDirectory, bool throwOnError, out string details )
     {
         details = string.Empty;
