@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;net48;net9.0-windows</TargetFrameworks>
+    <TargetFrameworks>net472;net48;net10.0-windows</TargetFrameworks>
     <LangVersion>preview</LangVersion>
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -58,7 +58,7 @@
 
   <ItemGroup>
     <Compile Include="..\..\items\ProductKey.cs" Link="Properties\ProductKey.cs" />
-    <Compile Remove="corelib\*.cs" Condition="'$(TargetFramework)' == 'net9.0-windows'" />
+    <Compile Remove="corelib\*.cs" Condition="'$(TargetFramework)' == 'net10.0-windows'" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -2,7 +2,10 @@
 Notable changes to this solution are documented in this file using the 
 [Keep a Changelog] style. The dates specified are in coordinated universal time (UTC).
 
-[1.1.9427]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+[1.1.9449]: https://github.com/ATECoder/dn.ui.win32.dialogs.git
+
+## [1.1.9449] - 2025-11-14
+- Transition .NET 9.0 projects to .NET 10 and VS2026.
 
 ## [1.1.9427] - 2025-10-23
 - Add Filter property to the file dialog.
