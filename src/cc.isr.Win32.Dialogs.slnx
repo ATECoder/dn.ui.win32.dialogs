@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/`build/">
+    <File Path="directory.build.props" />
+    <File Path="exclusion.dic" />
+    <File Path="global.json" />
+  </Folder>
+  <Folder Name="/`docs/">
+    <File Path="../changelog.md" />
+    <File Path="../readme.md" />
+    <File Path="../todo.md" />
+  </Folder>
+  <Project Path="dialogs/dialogs.mstest/cc.isr.Win32.Dialogs.MSTest.csproj" />
+  <Project Path="dialogs/dialogs/cc.isr.Win32.Dialogs.csproj" />
+</Solution>
