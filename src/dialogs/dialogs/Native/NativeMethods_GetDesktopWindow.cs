@@ -5,6 +5,7 @@
 using System.Runtime.InteropServices;
 
 namespace cc.isr.Win32.Native;
+
 internal static partial class NativeMethods
 {
     /// <summary>

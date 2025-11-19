@@ -10,6 +10,7 @@ using System.Runtime.InteropServices.ComTypes;
 #endif
 
 namespace cc.isr.Win32.Native;
+
 internal static partial class NativeMethods
 {
     /// <summary>   Creates and initializes a Shell item object from a parsing name. </summary>
