@@ -1,4 +1,3 @@
-
 using cc.isr.Win32.Native;
 
 namespace cc.isr.Win32.Dialogs;

@@ -1,4 +1,3 @@
-
 using System.Runtime.InteropServices;
 
 namespace cc.isr.Win32.Native;

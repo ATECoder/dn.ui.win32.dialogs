@@ -1,4 +1,3 @@
-
 namespace cc.isr.Win32;
 
 /// <summary> Information about this and related projects in this solution. </summary>

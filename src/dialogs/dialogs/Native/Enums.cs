@@ -1,4 +1,3 @@
-
 namespace cc.isr.Win32.Native;
 
 /// <summary>
