@@ -9,6 +9,9 @@
     <File Path="../readme.md" />
     <File Path="../todo.md" />
   </Folder>
+  <Folder Name="/`framework/">
+    <Project Path="../../..\core/ide/src/my/lib/BuildPackages/BuildPackages.csproj" />
+  </Folder>
   <Project Path="dialogs/dialogs.mstest/cc.isr.Win32.Dialogs.MSTest.csproj" />
   <Project Path="dialogs/dialogs/cc.isr.Win32.Dialogs.csproj" />
 </Solution>
